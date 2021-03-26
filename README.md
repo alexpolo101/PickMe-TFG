@@ -148,7 +148,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contacto
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Mi nombre - Alejandro Poyatos López - alexpoyatoslopez@gmail.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Link del proyecto: [https://github.com/alexpolo101/PickMe-TFG](https://github.com/alexpolo101/PickMe-TFG)
 
