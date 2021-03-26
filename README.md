@@ -6,10 +6,10 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">PickMe</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    Herramienta de evaluación de la usabilidad web basada en pruebas de A/B testing con criterios lingüísticos
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
@@ -26,7 +26,7 @@
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
-  <summary>Tabla de contenidos/summary>
+  <summary>Tabla de contenidos </summary>
   <ol>
     <li>
       <a href="#about-the-project">Sobre el proyecto</a>
