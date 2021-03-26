@@ -141,7 +141,7 @@ Contributions are what make the open source community such an amazing place to b
 <!-- LICENSE -->
 ## Licencia
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distribuido bajo la licencia dentro del ámbito académico de la UGR. Mire `LICENSE` para más información.
 
 
 
