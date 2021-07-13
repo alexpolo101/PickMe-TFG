@@ -56,16 +56,36 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
-
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have have contributed to expanding this template!
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
+El objetivo principal es desarrollar una herramienta basada en web que permita 
+responder desde cualquier dispositivo que cuente con conexión a internet, a cualquier 
+test que se incluya en la herramienta siendo estos modificables y compararlo con otro u 
+otros productos de su sector.
+Por tanto para el desarrollo de la herramienta se deben cumplir los siguientes objetivos:
+- Crear una interfaz que permita usar la herramienta en cualquier dispositivo.
+- La interfaz debe ser simple y limpia, con el fin de que pueda ser usada por la 
+mayoría de las personas, independientemente de su nivel de conocimiento.
+- Conocer los distintos tests de usabilidad e interfaces con el fin de poder aplicarlos 
+en la herramienta.
+- Crear un sistema que sea modular y editable.
+- Debe ser abierto, permitiendo su uso a personas ajenas al proyecto.
+- Debe ser muy gráfico con partes asociables para referencia del usuario.
+- Cada producto debe tener un nombre que lo identifique y otras partes que 
+permitan al usuario dirigirse a lo que se analiza.
+- Puede tener un sistema de roles que permita tener usuarios registrados en la 
+herramienta con el fin de editar los elementos referenciados anteriormente.
+- La información sensible del usuario debe estar protegida.
+- La información que almacena el sistema debe detallarse y ser transparente sobre 
+su almacenamiento y uso.
+- Las respuestas de los usuarios serán almacenadas para operar con las mismas.
+- Las respuestas deben ser de varios tipos distintos, tantas como para poder 
+responder correctamente los tests que contiene.
+- Puede llevar la cuenta del número de personas que han respondido cada 
+encuesta.19
+- Debe ofrecer información relevante respecto a las respuestas que ha obtenido 
+en cada test.
+- Será posible acceder al sistema sin estar registrado.
+- La herramienta debe contar con una landing page que explique los aspectos 
+fundamentales de la herramienta.
 
 ### Desarrollado con
 
