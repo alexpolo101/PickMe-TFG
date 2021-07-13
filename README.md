@@ -41,7 +41,6 @@
         <li><a href="#installation">Instalación</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Uso</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contribuciones</a></li>
     <li><a href="#license">Licencia</a></li>
@@ -72,23 +71,23 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 
 This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 * [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
+* [Twig] (https://twig.symfony.com)
+* [Javascript]
 
 
 
 <!-- GETTING STARTED -->
 ## Empezando
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+PickME es una aplicación web que permite configurar multiples A/B Testing de los productos que se necesiten aplicando un conjunto determinado de tests que son respondido mediante un conjunto de entradas configurable y que ofrece información estadística tras ser respondido.
+A continuación los requisitos de instalación.
 
 ### Prerrequisitos
 
-This is an example of how to list things you need to use the software and how to install them.
+El proyecto necesita del motor de plantillas twig para funcionar, asegurate que este se encuentre en la misma carpeta que el proyecto
 * npm
   ```sh
-  npm install npm@latest -g
+  npm install twig --save
   ```
 
 ### Instalación
@@ -96,26 +95,16 @@ This is an example of how to list things you need to use the software and how to
 1. Get a free API Key at [https://example.com](https://example.com)
 2. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/alexpolo101/PickMe-TFG.git
    ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```JS
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
-
-
-<!-- USAGE EXAMPLES -->
-## Uso
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
+3. Traslada TWIG a la carpeta del proyecto
+4. Montar un servidor PHP apache con la ruta del proyecto como objetivo
+5. Descarga e instala phpMyAdmin para la base de datos
+  ```sh
+  npm i phpmyadmin
+  ```
+6. Importa la base de datos del archivo sql/pickme.sql
+7. Inicia el servidor y ya esta funcionando
 
 
 <!-- ROADMAP -->
