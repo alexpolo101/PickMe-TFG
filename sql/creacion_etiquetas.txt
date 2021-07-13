@@ -1,0 +1,14 @@
+CREATE TABLE etiquetas( 
+idEtiqueta INT(111) AUTO_INCREMENT NOT NULL PRIMARY KEY,
+nameEtiqueta VARCHAR(111) NOT NULL UNIQUE,
+numValores int (111) not null,
+output BIT not null,
+maxValor int (111)
+)
+
+INSERT into etiquetas (nameEtiqueta,numValores,maxValor) VALUES ('ten',10,10);
+INSERT into etiquetas (nameEtiqueta,numValores,maxValor) VALUES ('number',100,100);
+INSERT into etiquetas (nameEtiqueta,numValores,maxValor) VALUES ('yesno',2,0);
+INSERT into etiquetas (nameEtiqueta,numValores,maxValor) VALUES ('small',3,0);
+INSERT into etiquetas (nameEtiqueta,numValores,maxValor) VALUES ('medium',5,0);
+INSERT into etiquetas (nameEtiqueta,numValores,maxValor) VALUES ('big',7,0);

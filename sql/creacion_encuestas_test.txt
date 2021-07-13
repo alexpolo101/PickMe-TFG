@@ -1,0 +1,9 @@
+CREATE TABLE encuestasTests(
+idEncuesta INT(111) NOT NULL,
+idTest INT(111) NOT NULL,
+PRIMARY KEY(idEncuesta,idTest),
+FOREIGN KEY (idEncuesta) REFERENCES encuestas(idEncuesta),
+FOREIGN KEY (idTest) REFERENCES tests(idTest)
+);
+
+ALTER TABLE `encuestastests` DROP FOREIGN KEY `encuestastests_ibfk_1`; ALTER TABLE `encuestastests` ADD CONSTRAINT `encuestastests_ibfk_1` FOREIGN KEY (`idEncuesta`) REFERENCES `encuestas`(`idEncuesta`) ON DELETE CASCADE ON UPDATE CASCADE; ALTER TABLE `encuestastests` DROP FOREIGN KEY `encuestastests_ibfk_2`; ALTER TABLE `encuestastests` ADD CONSTRAINT `encuestastests_ibfk_2` FOREIGN KEY (`idTest`) REFERENCES `tests`(`idTest`) ON DELETE CASCADE ON UPDATE CASCADE;

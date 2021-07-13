@@ -1,0 +1,24 @@
+CREATE TABLE testsEtiquetas(
+idTest INT(111) NOT NULL,
+idEtiqueta INT(111) NOT NULL,
+urlTest Tinytext not null,
+PRIMARY KEY(idTest,idEtiqueta),
+FOREIGN KEY (idTest) REFERENCES tests(idTest),
+FOREIGN KEY (idEtiqueta) REFERENCES etiquetas(idEtiqueta)
+);
+
+Insert into testsEtiquetas (idTest,idEtiqueta,urlTest) VALUES (1,2,'./responder_sus.php');
+
+Insert into testsEtiquetas (idTest,idEtiqueta,urlTest) VALUES (2,4,'./responder_pequeno.php');
+Insert into testsEtiquetas (idTest,idEtiqueta,urlTest) VALUES (3,5,'./responder_mediano.php');
+Insert into testsEtiquetas (idTest,idEtiqueta,urlTest) VALUES (4,6,'./responder_grande.php');
+
+Insert into testsEtiquetas (idTest,idEtiqueta,urlTest) VALUES (5,4,'./responder_pequeno.php');
+Insert into testsEtiquetas (idTest,idEtiqueta,urlTest) VALUES (6,5,'./responder_mediano.php');
+Insert into testsEtiquetas (idTest,idEtiqueta,urlTest) VALUES (7,6,'./responder_grande.php');
+
+Insert into testsEtiquetas (idTest,idEtiqueta,urlTest) VALUES (8,4,'./responder_pequeno.php');
+Insert into testsEtiquetas (idTest,idEtiqueta,urlTest) VALUES (9,5,'./responder_mediano.php');
+Insert into testsEtiquetas (idTest,idEtiqueta,urlTest) VALUES (10,6,'./responder_grande.php');
+
+Insert into testsEtiquetas (idTest,idEtiqueta,urlTest) VALUES (11,1,'./responder_escala.php');

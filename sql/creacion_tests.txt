@@ -1,0 +1,20 @@
+CREATE TABLE tests(
+idTest INT(111) PRIMARY KEY NOT NULL,
+nameTest TINYTEXT not null UNIQUE,
+descripcionTest TINYTEXT not null,
+tipoTest TINYTEXT,
+idEtiqueta INT(111) not null,
+FOREIGN KEY (idEtiqueta) REFERENCES etiquetas(idEtiqueta)
+);
+
+INSERT into tests (idTest,nameTest,descripcionTest,tipoTest,idEtiqueta) VALUES (1,'SUS','La escala de usabilidad del sistema (SUS) proporciona una herramienta confiable para medir la usabilidad, consiste en un cuestionario con varias opciones de respuesta para los encuestados.','destinatarios',2);
+INSERT into tests (idTest,nameTest,descripcionTest,tipoTest,idEtiqueta) VALUES (2,'Encuesta Usabilidad pequeno','Un test de usabilidad web es una evaluación que te permite saber cuán eficiente y satisfactorio es tu sitio web para el usuario cuando lo visita. Esto se reduce a aspectos como su simplicidad, coherencia y accesibilidad, en general, el objetivo es conocer qué tan fácil es navegar en él.','destinatarios',4);
+INSERT into tests (idTest,nameTest,descripcionTest,tipoTest,idEtiqueta) VALUES (3,'Encuesta Usabilidad mediano','Un test de usabilidad web es una evaluación que te permite saber cuán eficiente y satisfactorio es tu sitio web para el usuario cuando lo visita. Esto se reduce a aspectos como su simplicidad, coherencia y accesibilidad, en general, el objetivo es conocer qué tan fácil es navegar en él.','destinatarios',5);
+INSERT into tests (idTest,nameTest,descripcionTest,tipoTest,idEtiqueta) VALUES (4,'Encuesta Usabilidad grande','Un test de usabilidad web es una evaluación que te permite saber cuán eficiente y satisfactorio es tu sitio web para el usuario cuando lo visita. Esto se reduce a aspectos como su simplicidad, coherencia y accesibilidad, en general, el objetivo es conocer qué tan fácil es navegar en él.','destinatarios',6);
+INSERT into tests (idTest,nameTest,descripcionTest,tipoTest,idEtiqueta) VALUES (5,'Wave pequeno','WAVE es un conjunto de herramientas de evaluación que ayuda a identificar los elementos más problematicos para la accesibilidad de personas con discapacidades.','expertos',4);
+INSERT into tests (idTest,nameTest,descripcionTest,tipoTest,idEtiqueta) VALUES (6,'Wave mediano','WAVE es un conjunto de herramientas de evaluación que ayuda a identificar los elementos más problematicos para la accesibilidad de personas con discapacidades.','expertos',5);
+INSERT into tests (idTest,nameTest,descripcionTest,tipoTest,idEtiqueta) VALUES (7,'Wave grande','WAVE es un conjunto de herramientas de evaluación que ayuda a identificar los elementos más problematicos para la accesibilidad de personas con discapacidades.','expertos',6);
+INSERT into tests (idTest,nameTest,descripcionTest,tipoTest,idEtiqueta) VALUES (8,'Contraste pequeno','El test de contraste es un test que mide el uso adecuado de colores y de representación de la interfaz con especial atención en que puedan hacer uso del sistema personas con algún tipo de discapacidad visual.','expertos',4);
+INSERT into tests (idTest,nameTest,descripcionTest,tipoTest,idEtiqueta) VALUES (9,'Contraste mediano','El test de contraste es un test que mide el uso adecuado de colores y de representación de la interfaz con especial atención en que puedan hacer uso del sistema personas con algún tipo de discapacidad visual.','expertos',5);
+INSERT into tests (idTest,nameTest,descripcionTest,tipoTest,idEtiqueta) VALUES (10,'Contraste grande','El test de contraste es un test que mide el uso adecuado de colores y de representación de la interfaz con especial atención en que puedan hacer uso del sistema personas con algún tipo de discapacidad visual.','expertos',6);
+INSERT into tests (idTest,nameTest,descripcionTest,tipoTest,idEtiqueta) VALUES (11,'NPS','El Net Promoter Score mide con que asiduidad es recomendado su producto, haciendo especial hincapié en quien puede llegar a ser un potencial promotor o detractor del mismo.','destinatarios',1);

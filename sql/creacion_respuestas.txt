@@ -1,0 +1,13 @@
+CREATE TABLE respuestas(
+idRespuesta INT(111) AUTO_INCREMENT NOT NULL,
+idEncuesta INT(111) NOT NULL,
+idTest INT(111) NOT NULL,
+idAlternativa INT(111) NOT NULL,
+idUsers int(11),
+resultado NUMERIC NOT NULL,
+elementos TINYTEXT,
+PRIMARY KEY (idRespuesta,idEncuesta,idTest),
+FOREIGN KEY (idTest) REFERENCES tests(idTest),
+FOREIGN KEY (idEncuesta) REFERENCES encuestas(idEncuesta),
+FOREIGN KEY (idAlternativa) REFERENCES alternativas(idAlternativa)
+);

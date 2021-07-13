@@ -1,0 +1,10 @@
+CREATE TABLE users(
+idUsers int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+uidUsers TINYTEXT not null,
+emailUsers TINYTEXT not null,
+pwdUsers LONGTEXT not null,
+privilegio int(11) default 1
+);
+
+ALTER TABLE users add column conocimiento INT AFTER privilegio;
+ALTER TABLE users ADD UNIQUE (uidUsers);

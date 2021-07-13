@@ -1,0 +1,20 @@
+CREATE TABLE encuestas(
+idEncuesta INT(111) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+nameEncuesta TINYTEXT not null,
+typeEncuesta TINYTEXT not null,
+sizeEncuesta int(1) not null,
+numencuestados INT(111) DEFAULT 0,
+fecha DATE,
+visible BIT default 1,
+creador INTEGER,
+FOREIGN KEY (creador) REFERENCES Users(idUsers)
+);
+
+
+ALTER TABLE encuestas ADD creador INTEGER,
+    ADD CONSTRAINT FOREIGN KEY(creador) REFERENCES users(idUsers);
+
+ALTER TABLE `encuestas` CHANGE `fecha` `fecha` DATE NULL DEFAULT CURRENT_TIMESTAMP;
+ALTER TABLE encuestas ADD UNIQUE (nameEncuesta);
+
+ALTER TABLE `encuestas` DROP FOREIGN KEY `encuestas_ibfk_1`; ALTER TABLE `encuestas` ADD CONSTRAINT `encuestas_ibfk_1` FOREIGN KEY (`creador`) REFERENCES `users`(`idUsers`) ON DELETE CASCADE ON UPDATE CASCADE;

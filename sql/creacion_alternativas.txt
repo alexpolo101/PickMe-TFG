@@ -1,0 +1,10 @@
+CREATE TABLE alternativas(
+idAlternativa INT(111) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+nameAlternativa TINYTEXT not null,
+urlSitio TINYTEXT not null,
+urlLogo TINYTEXT not null,
+idEncuesta INT(111),
+FOREIGN KEY (idEncuesta) REFERENCES Encuestas(idEncuesta)
+);
+
+ALTER TABLE `alternativas` DROP FOREIGN KEY `alternativas_ibfk_1`; ALTER TABLE `alternativas` ADD CONSTRAINT `alternativas_ibfk_1` FOREIGN KEY (`idEncuesta`) REFERENCES `encuestas`(`idEncuesta`) ON DELETE CASCADE ON UPDATE CASCADE;
