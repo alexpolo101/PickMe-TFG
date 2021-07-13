@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="shortcut icon" href="assets/img/favicon.ico">
+    <title>{{nombrepagina}}</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
+</head>
+
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                        <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <div class="input-group" style="display:none"><input class="bg-light form-control border-0 small" type="text" placeholder="Search for ...">
+                                <div class="input-group-append"><button class="btn btn-primary py-0" type="button" style="background-color: rgb(30,106,221);"><i class="fas fa-search"></i></button></div>
+                            </div>
+                        </form>
+                        <ul class="nav navbar-nav flex-nowrap ml-auto">
+                            <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-search"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in" role="menu" aria-labelledby="searchDropdown">
+                                    <form class="form-inline mr-auto navbar-search w-100">
+                                        <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Search for ...">
+                                            <div class="input-group-append"><button class="btn btn-primary py-0" type="button"><i class="fas fa-search"></i></button></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown no-arrow mx-1" role="presentation"></li>
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item dropdown no-arrow" role="presentation">
+                              <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small">{{ usertop }}</span><img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg"></a>
+                                  <div
+                                  class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"><a class="dropdown-item" role="presentation" href="./profile.php"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Perfil</a>
+                                      <div class="dropdown-divider"></div><a class="dropdown-item" role="presentation" href="./php/logout.php"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Cerrar sesión</a></div>
+                    </div>
+                    </li>
+                    </ul>
+            </div>
+            </nav>
+            <div class="container-fluid">
+                <h3 class="text-dark mb-4">Gestión de usuarios</h3>
+                <div class="card shadow">
+                    <div class="card-header py-3">
+                        <p class="text-primary m-0 font-weight-bold">Listado</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 text-nowrap">
+                                <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label>Mostrando&nbsp;{{numusers}}&nbsp items&emsp;</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></div>
+                            </div>
+                        </div>
+                        <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                            <table class="table my-0" id="dataTable">
+                                <thead>
+                                    <tr>
+                                        <th>Id
+                                          <form action="./gestion.php" method="post" style="display: inline;">
+                                          <input name="by" type="hidden" value="idUsers">
+                                          <input name="type" type="hidden" value="ASC">
+                                          <button class="btn btn-link" name="orden-submit" type="submit">↑</button>
+                                          </form>
+                                          <form action="./gestion.php" method="post" style="display: inline;">
+                                          <input name="by" type="hidden" value="idUsers">
+                                          <input name="type" type="hidden" value="DESC">
+                                          <button class="btn btn-link" name="orden-submit" type="submit">↓</button>
+                                          </form>
+                                        </th>
+                                        <th>Uid
+                                          <form action="./gestion.php" method="post" style="display: inline;">
+                                          <input name="by" type="hidden" value="uidUsers">
+                                          <input name="type" type="hidden" value="ASC">
+                                          <button class="btn btn-link" name="orden-submit" type="submit">↑</button>
+                                          </form>
+                                          <form action="./gestion.php" method="post" style="display: inline;">
+                                          <input name="by" type="hidden" value="uidUsers">
+                                          <input name="type" type="hidden" value="DESC">
+                                          <button class="btn btn-link" name="orden-submit" type="submit">↓</button>
+                                          </form>
+                                        </th>
+                                        <th>Email
+                                          <form action="./gestion.php" method="post" style="display: inline;">
+                                          <input name="by" type="hidden" value="emailUsers">
+                                          <input name="type" type="hidden" value="ASC">
+                                          <button class="btn btn-link" name="orden-submit" type="submit">↑</button>
+                                          </form>
+                                          <form action="./gestion.php" method="post" style="display: inline;">
+                                          <input name="by" type="hidden" value="emailUsers">
+                                          <input name="type" type="hidden" value="DESC">
+                                          <button class="btn btn-link" name="orden-submit" type="submit">↓</button>
+                                          </form>
+                                        </th>
+                                        <th>Conocimiento</th>
+                                        <th>Privilegio<form action="./gestion.php" method="post" style="display: inline;">
+                                        <input name="by" type="hidden" value="privilegio">
+                                        <input name="type" type="hidden" value="ASC">
+                                        <button class="btn btn-link" name="orden-submit" type="submit">↑</button>
+                                        </form>
+                                        <form action="./gestion.php" method="post" style="display: inline;">
+                                        <input name="by" type="hidden" value="privilegio">
+                                        <input name="type" type="hidden" value="DESC">
+                                        <button class="btn btn-link" name="orden-submit" type="submit">↓</button>
+                                        </form>
+                                      </th>
+                                        <th>Cambiar privilegio</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  {% set count = 0 %}
+                                  {% for u in usuarios %}
+                                    <tr>
+                                        <td>
+                                        <a href="./profile.php?idUser={{u["idUsers"]}}">{{u["idUsers"]}}</a>
+                                        </td>
+                                        <td>{{u["uidUsers"]}}</td>
+                                        <td>{{u["emailUsers"]}}</td>
+                                        <td>{{u["conocimiento"]}}</td>
+                                        {% if u["privilegio"] == 1 %}
+                                        {% set rango = 'Común' %}
+                                        {% elseif u["privilegio"] == 2 %}
+                                        {% set rango = 'Gestor' %}
+                                        {% else %}
+                                        {% set rango = 'Administrador' %}
+                                        {% endif %}
+                                        <td>{{rango}}</td>
+                                        <td>
+                                          {% if u["privilegio"] != 1 %}
+                                          <form action="php/usuario_privilegio.php" method="post" style="display: inline;">
+                                          <input name="eidusuario" type="hidden" value="{{u["idUsers"]}}"></input>
+                                          <input name="nuevoprivilegio" type="hidden" value="1"></input>
+                                          <button class="btn btn-primary" name="privilegio-submit" type="submit">Común</button>
+                                          </form>
+                                          {% endif %}
+                                          {% if u["privilegio"] != 2 %}
+                                          <form action="php/usuario_privilegio.php" method="post" style="display: inline;">
+                                          <input name="eidusuario" type="hidden" value="{{u["idUsers"]}}"></input>
+                                          <input name="nuevoprivilegio" type="hidden" value="2"></input>
+                                          <button class="btn btn-primary" name="privilegio-submit" type="submit">Gestor</button>
+                                          </form>
+                                          {% endif %}
+                                          {% if u["privilegio"] != 3 %}
+                                          <form action="php/usuario_privilegio.php" method="post" style="display: inline;">
+                                          <input name="eidusuario" type="hidden" value="{{u["idUsers"]}}"></input>
+                                          <input name="nuevoprivilegio" type="hidden" value="3"></input>
+                                          <button class="btn btn-primary" name="privilegio-submit" type="submit">Administrador</button>
+                                          </form>
+                                          {% endif %}
+                                          </form>
+                                        </td>
+                                    </tr>
+                                      {% set count = count+1 %}
+
+                                      {% endfor %}
+
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td><strong>Id</strong></td>
+                                        <td><strong>Uid</strong></td>
+                                        <td><strong>Email</strong></td>
+                                        <td><strong>Conocimiento</strong></td>
+                                        <td><strong>Privilegio</strong></td>
+                                        <th>Cambiar privilegio</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Copyright © PickME 2021</span></div>
+            </div>
+        </footer>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>

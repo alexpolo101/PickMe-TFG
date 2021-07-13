@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="shortcut icon" href="assets/img/favicon.ico">
+    <title>{{nombrepagina}}</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min_2.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="assets/css/Article-Clean.css">
+    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="assets/css/Header-Blue.css">
+    <link rel="stylesheet" href="assets/css/Highlight-Blue.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/Newsletter-Subscription-Form.css">
+    <link rel="stylesheet" href="assets/css/slider.css">
+    <script type = "text/javascript" src="../js/pasarPregunta.js"></script>
+    <script type = "text/javascript" src="../js/accion.js"></script>
+    <script type = "text/javascript" src="../js/slider.js"></script>
+</head>
+
+<body>
+    <div>
+      <div class="row">
+        {% set alternativa_actual = 1 %}
+        {% for a in alternativas%}
+        {% if alternativa_actual == 1 %}
+        <div style="display:block" id="nav_alternativa_{{alternativa_actual}}" class="col">
+        {% else %}
+        <div style="display:none" id="nav_alternativa_{{alternativa_actual}}" class="col">
+        {% endif %}
+              <nav class="navbar navbar-light navbar-expand-md navigation-clean">
+                  <div class="container"><a target=”_blank” class="navbar-brand" href="{{a['urlSitio']}}">{{a['nameAlternativa']}}</a>
+                      <div class="collapse navbar-collapse" id="navcol-1">
+                          <ul class="nav navbar-nav ml-auto">
+                              <li class="nav-item" role="presentation"></li>
+                          </ul>
+                      </div><img src="{{a['urlLogo']}}" style="width: 50px;"></div>
+              </nav>
+          </div>
+          {% set alternativa_actual = alternativa_actual+1 %}
+          {% endfor %}
+      </div>
+        <div class="header-blue" style="background-image: url(&quot;assets/img/fondo_encuestas_altmini.png&quot;);">
+          <div class="row text-center">
+            <div class="col text-center">
+              <div class="card-header" style="color: rgb(255,255,255)">
+                  <span style="color: rgb(255,255,255);font-size: 22px;margin-top: 10px;">Pregunta&nbsp;</span>
+                  <span id="marcador" style="color: rgb(255,255,255);font-size: 20px;margin-top: 10px;">1 /&nbsp; {{npreguntas}}</span>
+              </div>
+              </div>
+              <div class="col text-center">
+              <div class="card-header" style="color: rgb(255,255,255)">
+                  <span style="color: rgb(255,255,255);font-size: 22px;margin-top: 10px;">Alternativa&nbsp;</span>
+                  <span id="marcador_alternativa" style="color: rgb(255,255,255);font-size: 20px;margin-top: 10px;">1 /&nbsp; {{nalternativas}}</span>
+              </div>
+              </div>
+          </div>
+
+            <hr style="margin-top: 0px;margin-bottom: 25px;">
+            <form action="./php/respuesta_definitivo.php" method="post" onkeydown="return event.key != 'Enter';">
+            <input name="idencuestado" type="hidden" value= "{{ idencuestado }}" >
+            <input name="idtest" type="hidden" value= "{{ idtest }}" >
+            <input name="idpick" type="hidden" value= "{{ idpick }}" >
+            <input name="numpreguntas" type="hidden" value= "{{ npreguntas }}" >
+            <input name="numalternativas" type="hidden" value= "{{ nalternativas }}" >
+            <input name="numtags" type="hidden" value= "{{numtags}}" >
+            <input name="rol" type="hidden" value= "{{rol}}" >
+            {% set ba = 1 %}
+            {% for b in alternativas%}
+            <input name="idalternativa_{{ba}}" type="hidden" value= "{{b['idAlternativa']}}" >
+            {% set ba = ba+1 %}
+            {% endfor %}
+
+            {% set actual = 1 %}
+            {% set alternativa_actual = 1 %}
+            {% set pregunta_actual = 1 %}
+
+            {% for p in preguntas%}
+            {% for a in alternativas%}
+                {% if actual==1 %}
+                  <div id="bloque_pregunta_{{actual}}" style="display:block">
+                  {% else %}
+                  <div id="bloque_pregunta_{{actual}}" style="display:none">
+                  {% endif %}
+                  <p class="text-center" style="font-size: 17px;color: rgb(255,255,255);margin-bottom: 67px;margin-left: 10px;"><strong>{{p['texto']}}</strong></p>
+                  {% if etiqueta==6 %}
+                  <div class="row text-center">
+                      <div class="col text-center"><button id="b7_{{actual}}" onclick="marcar(this.id,7,{{actual}},{{alternativa_actual}},7)" class="btn btn-light btn-sm text-truncate text-left border rounded action-button" type="button" style="background-color: rgba(0,0,0,0.05);margin-right: 10px;margin-left: 10px;padding: 10px;width: 326px;">Excelente&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<i id="i7_{{actual}}" style="display:none" class="fa fa-check-circle-o"></i></button></div>
+                  </div>
+                  <div class="row text-center">
+                      <div class="col text-center"><button id="b6_{{actual}}" onclick="marcar(this.id,6,{{actual}},{{alternativa_actual}},7)" class="btn btn-light btn-sm text-truncate text-left border rounded action-button" type="button" style="background-color: rgba(0,0,0,0.05);margin-right: 10px;margin-left: 10px;padding: 10px;width: 326px;">Muy bien&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<i id="i6_{{actual}}" style="display:none" class="fa fa-check-circle-o"></i></button></div>
+                  </div>
+                  <div class="row text-center">
+                      <div class="col text-center"><button id="b5_{{actual}}" onclick="marcar(this.id,5,{{actual}},{{alternativa_actual}},7)" class="btn btn-light btn-sm text-truncate text-left border rounded action-button" type="button" style="background-color: rgba(0,0,0,0.05);margin-right: 10px;margin-left: 10px;padding: 10px;width: 326px;">Bien&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<i id="i5_{{actual}}" style="display:none" class="fa fa-check-circle-o"></i></button></div>
+                  </div>
+                  <div class="row text-center">
+                      <div class="col text-center"><button id="b4_{{actual}}" onclick="marcar(this.id,4,{{actual}},{{alternativa_actual}},7)" class="btn btn-light btn-sm text-truncate text-left border rounded action-button" type="button" style="background-color: rgba(0,0,0,0.05);margin-right: 10px;margin-left: 10px;padding: 10px;width: 326px;">Normal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<i id="i4_{{actual}}" style="display:none" class="fa fa-check-circle-o"></i></button></div>
+                  </div>
+                  <div class="row text-center">
+                      <div class="col text-center"><button id="b3_{{actual}}" onclick="marcar(this.id,3,{{actual}},{{alternativa_actual}},7)" class="btn btn-light btn-sm text-truncate text-left border rounded action-button" type="button" style="background-color: rgba(0,0,0,0.05);margin-right: 10px;margin-left: 10px;padding: 10px;width: 326px;">Regular&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<i id="i3_{{actual}}" style="display:none" class="fa fa-check-circle-o"></i></button></div>
+                  </div>
+                  <div class="row text-center">
+                      <div class="col text-center"><button id="b2_{{actual}}" onclick="marcar(this.id,2,{{actual}},{{alternativa_actual}},7)" class="btn btn-light btn-sm text-truncate text-left border rounded action-button" type="button" style="background-color: rgba(0,0,0,0.05);margin-right: 10px;margin-left: 10px;padding: 10px;width: 326px;">Malo&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<i id="i2_{{actual}}" style="display:none" class="fa fa-check-circle-o"></i></button></div>
+                  </div>
+                  <div class="row text-center">
+                      <div class="col text-center"><button id="b1_{{actual}}" onclick="marcar(this.id,1,{{actual}},{{alternativa_actual}},7)" class="btn btn-light btn-sm text-truncate text-left border rounded action-button" type="button" style="background-color: rgba(0,0,0,0.05);margin-right: 10px;margin-left: 10px;padding: 10px;width: 326px;">Muy malo&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<i id="i1_{{actual}}" style="display:none" class="fa fa-check-circle-o"></i></button></div>
+                  </div>
+                  <input name="respuesta_{{pregunta_actual}}_{{alternativa_actual}}" id="respuesta_{{actual}}_{{alternativa_actual}}" type="hidden" value='4' required="">
+
+                  {% elseif etiqueta==5 %}
+
+                  <div class="row text-center">
+                      <div class="col text-center"><button id="b5_{{actual}}" onclick="marcar(this.id,5,{{actual}},{{alternativa_actual}},5)" class="btn btn-light btn-sm text-truncate text-left border rounded action-button" type="button" style="background-color: rgba(0,0,0,0.05);margin-right: 10px;margin-left: 10px;padding: 10px;width: 326px;">Excelente&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<i id="i5_{{actual}}" style="display:none" class="fa fa-check-circle-o"></i></button></div>
+                  </div>
+                  <div class="row text-center">
+                      <div class="col text-center"><button id="b4_{{actual}}" onclick="marcar(this.id,4,{{actual}},{{alternativa_actual}},5)" class="btn btn-light btn-sm text-truncate text-left border rounded action-button" type="button" style="background-color: rgba(0,0,0,0.05);margin-right: 10px;margin-left: 10px;padding: 10px;width: 326px;">Bien&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<i id="i4_{{actual}}" style="display:none" class="fa fa-check-circle-o"></i></button></div>
+                  </div>
+                  <div class="row text-center">
+                      <div class="col text-center"><button id="b3_{{actual}}" onclick="marcar(this.id,3,{{actual}},{{alternativa_actual}},5)" class="btn btn-light btn-sm text-truncate text-left border rounded action-button" type="button" style="background-color: rgba(0,0,0,0.05);margin-right: 10px;margin-left: 10px;padding: 10px;width: 326px;">Normal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<i id="i3_{{actual}}" style="display:none" class="fa fa-check-circle-o"></i></button></div>
+                  </div>
+                  <div class="row text-center">
+                      <div class="col text-center"><button id="b2_{{actual}}" onclick="marcar(this.id,2,{{actual}},{{alternativa_actual}},5)" class="btn btn-light btn-sm text-truncate text-left border rounded action-button" type="button" style="background-color: rgba(0,0,0,0.05);margin-right: 10px;margin-left: 10px;padding: 10px;width: 326px;">Malo&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<i id="i2_{{actual}}" style="display:none" class="fa fa-check-circle-o"></i></button></div>
+                  </div>
+                  <div class="row text-center">
+                      <div class="col text-center"><button id="b1_{{actual}}" onclick="marcar(this.id,1,{{actual}},{{alternativa_actual}},5)" class="btn btn-light btn-sm text-truncate text-left border rounded action-button" type="button" style="background-color: rgba(0,0,0,0.05);margin-right: 10px;margin-left: 10px;padding: 10px;width: 326px;">Muy malo&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<i id="i1_{{actual}}" style="display:none" class="fa fa-check-circle-o"></i></button></div>
+                  </div>
+                  <input name="respuesta_{{pregunta_actual}}_{{alternativa_actual}}" id="respuesta_{{actual}}_{{alternativa_actual}}" type="hidden" value='3' required="">
+
+                  {% elseif etiqueta==4 %}
+                  <div class="row text-center">
+                      <div class="col text-center"><button id="b3_{{actual}}" onclick="marcar(this.id,3,{{actual}},{{alternativa_actual}},3)" class="btn btn-light btn-sm text-truncate text-left border rounded action-button" type="button" style="background-color: rgba(0,0,0,0.05);margin-right: 10px;margin-left: 10px;padding: 10px;width: 326px;">Bien&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<i id="i3_{{actual}}" style="display:none" class="fa fa-check-circle-o"></i></button></div>
+                  </div>
+                  <div class="row text-center">
+                      <div class="col text-center"><button id="b2_{{actual}}" onclick="marcar(this.id,2,{{actual}},{{alternativa_actual}},3)" class="btn btn-light btn-sm text-truncate text-left border rounded action-button" type="button" style="background-color: rgba(0,0,0,0.05);margin-right: 10px;margin-left: 10px;padding: 10px;width: 326px;">Normal&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<i id="i2_{{actual}}" style="display:none" class="fa fa-check-circle-o"></i></button></div>
+                  </div>
+                  <div class="row text-center">
+                      <div class="col text-center"><button id="b1_{{actual}}" onclick="marcar(this.id,1,{{actual}},{{alternativa_actual}},3)" class="btn btn-light btn-sm text-truncate text-left border rounded action-button" type="button" style="background-color: rgba(0,0,0,0.05);margin-right: 10px;margin-left: 10px;padding: 10px;width: 326px;">Malo&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<i id="i1_{{actual}}" style="display:none" class="fa fa-check-circle-o"></i></button></div>
+                  </div>
+                  <input name="respuesta_{{pregunta_actual}}_{{alternativa_actual}}" id="respuesta_{{actual}}_{{alternativa_actual}}" type="hidden" value='2' required="">
+
+                  {% elseif etiqueta==3 %}
+                  <div class="row text-center">
+                      <div class="col text-center"><button id="b5_{{actual}}" onclick="marcar(this.id,5,{{actual}},{{alternativa_actual}},5)" class="btn btn-light btn-sm text-truncate text-left border rounded action-button" type="button" style="background-color: rgba(0,0,0,0.05);margin-right: 10px;margin-left: 10px;padding: 10px;width: 326px;">Completamente de acuerdo<i id="i5_{{actual}}" style="display:none" class="fa fa-check-circle-o"></i></button></div>
+                  </div>
+                  <div class="row text-center">
+                      <div class="col text-center"><button id="b4_{{actual}}" onclick="marcar(this.id,4,{{actual}},{{alternativa_actual}},5)" class="btn btn-light btn-sm text-truncate text-left border rounded action-button" type="button" style="background-color: rgba(0,0,0,0.05);margin-right: 10px;margin-left: 10px;padding: 10px;width: 326px;">De acuerdo<i id="i4_{{actual}}" style="display:none" class="fa fa-check-circle-o"></i></button></div>
+                  </div>
+                  <div class="row text-center">
+                      <div class="col text-center"><button id="b3_{{actual}}" onclick="marcar(this.id,3,{{actual}},{{alternativa_actual}},5)" class="btn btn-light btn-sm text-truncate text-left border rounded action-button" type="button" style="background-color: rgba(0,0,0,0.05);margin-right: 10px;margin-left: 10px;padding: 10px;width: 326px;">Ni de acuerdo, ni en desacuerdo<i id="i3_{{actual}}" style="display:none" class="fa fa-check-circle-o"></i></button></div>
+                  </div>
+                  <div class="row text-center">
+                      <div class="col text-center"><button id="b2_{{actual}}" onclick="marcar(this.id,2,{{actual}},{{alternativa_actual}},5)" class="btn btn-light btn-sm text-truncate text-left border rounded action-button" type="button" style="background-color: rgba(0,0,0,0.05);margin-right: 10px;margin-left: 10px;padding: 10px;width: 326px;">En desacuerdo<i id="i2_{{actual}}" style="display:none" class="fa fa-check-circle-o"></i></button></div>
+                  </div>
+                  <div class="row text-center">
+                      <div class="col text-center"><button id="b1_{{actual}}" onclick="marcar(this.id,1,{{actual}},{{alternativa_actual}},5)" class="btn btn-light btn-sm text-truncate text-left border rounded action-button" type="button" style="background-color: rgba(0,0,0,0.05);margin-right: 10px;margin-left: 10px;padding: 10px;width: 326px;">Muy en desacuerdo<i id="i1_{{actual}}" style="display:none" class="fa fa-check-circle-o"></i></button></div>
+                  </div>
+                  <input name="respuesta_{{pregunta_actual}}_{{alternativa_actual}}" id="respuesta_{{actual}}_{{alternativa_actual}}" type="hidden" value='3' required="">
+
+                  {% elseif etiqueta==2 %}
+                  <div class="row">
+                      <div class="col text-center">
+                        <div class="col text-center"><input  name="respuesta_{{pregunta_actual}}_{{alternativa_actual}}" id="respuesta_{{actual}}_{{alternativa_actual}}" type="number" min="{{min}}" max={{max}} value='0' required=""></div>
+                      </div>
+                  </div>
+
+                  {% elseif etiqueta==1 %}
+                  <div class="row">
+                      <div class="col text-center">
+                        <span style="font-size: 19px;color: rgb(255,255,255);">Seleccionado: </span><p style="font-size: 19px;color: rgb(255,255,255);" id="slidernumero_{{actual}}" >{{(max+min)/2}}</p>
+                        <div class="slidecontainer">
+                            <span style="font-size: 15px;color: rgb(255,255,255);margin-right: 10px;"> {{min}} </span>
+                            <input name="respuesta_{{pregunta_actual}}_{{alternativa_actual}}" id="respuesta_{{actual}}_{{alternativa_actual}}" type="range" min="{{min}}" max="{{max}}" value="{{(max+min)/2}}" class="slider" onchange="updateTextInput(this.value,{{actual}});">
+                            <span style="font-size: 15px;color: rgb(255,255,255);margin-left: 10px;"> {{max}} </span>
+                        </div>
+                      </div>
+                  </div>
+                  {% endif %}
+
+                  <div class="row">
+                  {% if actual > 1 %}
+                  <div class="col text-right">
+                      <button id="anterior_{{actual}}" onclick="anterior({{actual}},{{alternativa_actual}},{{npreguntas}},{{nalternativas}})" class="btn btn-primary border rounded" type="button" style="margin-right: 40px;margin-top: 60px;background-color: #4369d6;color: rgb(255,255,255);margin-bottom: 125px;"><i class="fa fa-arrow-left"></i>&nbsp;Anterior&nbsp; &nbsp;</button>
+                  </div>
+                  {% endif %}
+
+                  {% if actual!= npreguntas*nalternativas %}
+                    {% if actual== 1 %}
+                  <div class="col text-center">
+                      <button id="siguiente_{{actual}}" onclick="siguiente({{actual}},{{alternativa_actual}},{{npreguntas}},{{nalternativas}})" class="btn btn-primary border rounded" type="button" style="margin-top: 60px;background-color: #4369d6;color: rgb(255,255,255);margin-bottom: 125px;">Siguiente&nbsp; &nbsp;<i class="fa fa-arrow-right"></i>&nbsp;</button>
+                    {% else %}
+                    <div class="col text-left">
+                      <button id="siguiente_{{actual}}" onclick="siguiente({{actual}},{{alternativa_actual}},{{npreguntas}},{{nalternativas}})" class="btn btn-primary border rounded" type="button" style="margin-left: 40px;margin-top: 60px;background-color: #4369d6;color: rgb(255,255,255);margin-bottom: 125px;">Siguiente&nbsp; &nbsp;<i class="fa fa-arrow-right"></i>&nbsp;</button>
+                    {% endif %}
+                  </div>
+                  {% else %}
+                  <div class="col text-left">
+                      <button onclick="this.disabled=true;this.form.submit();" id="enviar_resultado" type="submit" name="responder-tag" class="btn btn-primary border rounded" style="margin-left: 40px;margin-top: 60px;background-color: #25f047;color: rgb(255,255,255);margin-bottom: 125px;">Enviar respuestas&nbsp; &nbsp;<i class="fa fa-arrow-right"></i>&nbsp;</button>
+                  </div>
+                  {% endif %}
+                  </div>
+                </div>
+            {% set actual = actual+1 %}
+            {% set alternativa_actual = alternativa_actual+1 %}
+            {% endfor %}
+            {% set pregunta_actual = pregunta_actual+1 %}
+            {% set alternativa_actual = 1 %}
+            {% endfor %}
+            <div class="row">
+                <a href="./responder_inicio.php?id={{idpick}}"<div class="col text-center" style="margin-top: 55px;"><button class="btn btn-primary" type="button" style="background-color:#4369d6"><i class="fa fa-close"></i>&nbsp;Terminar intento&nbsp;</button></a></div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+</body>
+
+</html>

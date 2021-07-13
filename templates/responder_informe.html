@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="shortcut icon" href="assets/img/favicon.ico">
+    <title>{{nombrepagina}}</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min_2.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="assets/css/Article-Clean.css">
+    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="assets/css/Header-Blue.css">
+    <link rel="stylesheet" href="assets/css/Highlight-Blue.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/Newsletter-Subscription-Form.css">
+    <link rel="stylesheet" href="assets/css/ranking.css">
+</head>
+
+<body>
+    <div>
+        <div class="row">
+            <div class="col">
+            </div>
+        </div>
+        <div class="header-blue" style="background-image: url(&quot;assets/img/fondo_encuestas_altmini.png&quot;);">
+            <hr style="margin-top: 0px;margin-bottom: 25px;">
+            <p class="text-center" style="font-size: 23px;color: rgb(255,255,255);margin-bottom: 35px;margin-left: 10px;"><strong>Informe del PickME {{nombrepickme}}</strong></p>
+            <div style="background-color: #ffffff;">
+                <ul class="nav nav-tabs" style="background-color: #ffffff;">
+                    <li class="nav-item"><a class="nav-link  active" role="tab" data-toggle="tab" href="#tab-1">Ranking</a></li>
+                    {% set tabindex = 2 %}
+                    {% for t in nombres_tests %}
+                    <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-{{tabindex}}">{{t['nameTest']}}</a></li>
+                    {% set tabindex = tabindex + 1 %}
+                    {% endfor %}
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" role="tabpanel" id="tab-1">
+                      <div class="row" style="margin-top: 20px;background-color: #ffffff;margin-left: -16px;">
+                          <div class="col">
+                            <p style="margin-left: 20px; ">
+                            Basándonos en una métrica obtenida de la media de todas las respuestas obtenidas hasta el momento de los usuarios en los tests que ha considerado, se han obtenido estos resultados:
+                            </p>
+                          </div>
+                      </div>
+                      <div style="margin: auto;width: 30%;">
+                      <article class="leaderboard">
+                        <header>
+                          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve" class="leaderboard__icon">
+                            <g>
+                              <g>
+                                <path d="M466.45,49.374c-7.065-8.308-17.368-13.071-28.267-13.071H402.41v-11.19C402.41,11.266,391.143,0,377.297,0H134.705
+                            c-13.848,0-25.112,11.266-25.112,25.112v11.19H73.816c-10.899,0-21.203,4.764-28.267,13.071
+                            c-6.992,8.221-10.014,19.019-8.289,29.624c9.4,57.8,45.775,108.863,97.4,136.872c4.717,11.341,10.059,22.083,16.008,32.091
+                            c19.002,31.975,42.625,54.073,68.627,64.76c2.635,26.644-15.094,51.885-41.794,57.9c-0.057,0.013-0.097,0.033-0.153,0.046
+                            c-5.211,1.245-9.09,5.921-9.09,11.513v54.363h-21.986c-19.602,0-35.549,15.947-35.549,35.549v28.058
+                            c0,6.545,5.305,11.85,11.85,11.85H390.56c6.545,0,11.85-5.305,11.85-11.85v-28.058c0-19.602-15.947-35.549-35.549-35.549h-21.988
+                            V382.18c0-5.603-3.893-10.286-9.118-11.52c-0.049-0.012-0.096-0.028-0.145-0.04c-26.902-6.055-44.664-31.55-41.752-58.394
+                            c25.548-10.86,48.757-32.761,67.479-64.264c5.949-10.009,11.29-20.752,16.008-32.095c51.622-28.01,87.995-79.072,97.395-136.87
+                            C476.465,68.392,473.443,57.595,466.45,49.374z M60.652,75.192c-0.616-3.787,0.431-7.504,2.949-10.466
+                            c2.555-3.004,6.277-4.726,10.214-4.726h35.777v21.802c0,34.186,4.363,67.3,12.632,97.583
+                            C89.728,153.706,67.354,116.403,60.652,75.192z M366.861,460.243c6.534,0,11.85,5.316,11.85,11.85v16.208H134.422v-16.208
+                            c0-6.534,5.316-11.85,11.85-11.85H366.861z M321.173,394.03v42.513H191.96V394.03H321.173z M223.037,370.331
+                            c2.929-3.224,5.607-6.719,8.002-10.46c7.897-12.339,12.042-26.357,12.228-40.674c4.209,0.573,8.457,0.88,12.741,0.88
+                            c4.661,0,9.279-0.358,13.852-1.036c0.27,19.239,7.758,37.45,20.349,51.289H223.037z M378.709,81.803
+                            c0,58.379-13.406,113.089-37.747,154.049c-23.192,39.03-53.364,60.525-84.956,60.525c-31.597,0-61.771-21.494-84.966-60.523
+                            c-24.342-40.961-37.748-95.671-37.748-154.049V25.112c0-0.78,0.634-1.413,1.412-1.413h242.591c0.78,0,1.414,0.634,1.414,1.413
+                            V81.803z M451.348,75.192c-6.702,41.208-29.074,78.51-61.569,104.191c8.268-30.283,12.631-63.395,12.631-97.58V60.001h35.773
+                            c3.938,0,7.66,1.723,10.214,4.726C450.915,67.688,451.963,71.405,451.348,75.192z" />
+                              </g>
+                            </g>
+                            <g>
+                              <g>
+                                <path d="M327.941,121.658c-1.395-4.288-5.103-7.414-9.566-8.064l-35.758-5.196l-15.991-32.402
+                            c-1.997-4.044-6.116-6.605-10.626-6.605c-4.511,0-8.63,2.561-10.626,6.605l-15.991,32.402l-35.758,5.196
+                            c-4.464,0.648-8.172,3.775-9.566,8.065c-1.393,4.291-0.231,8.999,2.999,12.148l25.875,25.221l-6.109,35.613
+                            c-0.763,4.446,1.064,8.938,4.714,11.59c3.648,2.651,8.487,3,12.479,0.902L256,190.32l31.982,16.813
+                            c1.734,0.911,3.627,1.36,5.512,1.36c2.456,0,4.902-0.763,6.966-2.263c3.65-2.652,5.477-7.144,4.714-11.59l-6.109-35.613
+                            l25.875-25.221C328.172,130.658,329.334,125.949,327.941,121.658z M278.064,146.405c-2.793,2.722-4.068,6.644-3.408,10.489
+                            l3.102,18.09l-16.245-8.541c-1.725-0.908-3.62-1.36-5.514-1.36c-1.894,0-3.788,0.454-5.514,1.36l-16.245,8.541l3.102-18.09
+                            c0.66-3.844-0.615-7.766-3.408-10.489l-13.141-12.81l18.162-2.64c3.859-0.56,7.196-2.985,8.922-6.482l8.123-16.458l8.122,16.458
+                            c1.727,3.497,5.062,5.921,8.922,6.482l18.162,2.64L278.064,146.405z" />
+                              </g>
+                            </g>
+                          </svg>
+
+                          <h1 class="leaderboard__title"><span class="leaderboard__title--top">Ranking</span><span class="leaderboard__title--bottom">Alternativas</span></h1>
+                        </header>
+
+                        <main class="leaderboard__profiles">
+                          {% for r in ranking %}
+                          <article class="leaderboard__profile">
+                            <img src="{{r['urlLogo']}}" class="leaderboard__picture" style="width:80px;height:80px;">
+                            <span class="leaderboard__name">&nbsp;&nbsp;&nbsp;{{r['nameAlternativa']}}</span>
+                            <span class="leaderboard__value">{{r['puntos']}}<span>puntos</span></span>
+                          </article>
+                          {% endfor %}
+                        </main>
+                      </div>
+                      </div>
+                      {% set indice = 2 %}
+                      {% for t in nombres_tests %}
+
+                      <!-- SUS -->
+                      {% if t['idTest']==1 %}
+
+                    <div class="tab-pane" role="tabpanel" id="tab-{{indice}}">
+
+                      <div class="row">
+                      {% for r in respuestas %}
+                      {% if r['nameTest'] == "SUS" %}
+                          <div class="col">
+                            <div class="text-center">
+                              <p style="background-color: #ffffff;font-size: 25px;margin-bottom: 5px;color: rgb(55,149,242);margin-left: 10px;"><strong>{{r['nameAlternativa']}}</strong></p>
+                              <span class="badge badge-primary" style="font-size: 29px;margin-left: 15px;">{{r['puntos']|round(1, 'floor')}}</span>
+                            </div>
+                          </div>
+                      {% endif %}
+                      {% endfor %}
+                      </div>
+
+                      <div class="row" style="margin-top: 20px;background-color: #ffffff;margin-left: -16px;">
+                          <div class="col">
+                            <p style="margin-left: 20px; ">
+                              Basándonos en los resultados de los test SUS podemos definir el siguiente gráfico:
+                            </p>
+                          </div>
+                      </div>
+                        <div class="row" style="margin-top: 20px;background-color: #ffffff;margin-left: -16px;">
+                            <div class="col">
+                                <div><canvas id="radarChart">
+                                  {% set count = 1 %}
+                                  {% for r in respuestas %}
+                                  {% if r['nameTest'] == "SUS" %}
+                                  <input type="hidden" id="susalt{{count}}" value="{{r['nameAlternativa']}}"></input>
+                                  <input type="hidden" id="susaltval{{count}}" value="{{r['puntos']}}"></input>
+                                  {% set count = count + 1 %}
+                                  {% endif %}
+                                  {% endfor %}
+                                  <input type="hidden" id="susaltnum" value="{{count-1}}"></input>
+                                </canvas></div>
+                                <div class="row">
+                                    <div class="col">
+                                <h1 style="font-size: 26px;">Leyenda</h1>
+                                <p style="margin-left: 10px;margin-top: 25px;">
+                                <strong>No aceptable</strong> (menos 40):&nbsp;<br>El producto en el estado actual es inoperable y necesita unas mejores radicales para ponerlo a disposición del público. <br><br>
+                                <strong>Marginal</strong>(entre 40 y 60): <br>El producto se encuestra por debajo de la media y necesita mejoras radicales para competir.<br><br>
+                                <strong>Marginal tipo D</strong> (entre 60 y 69): <br>El producto se encuentra sobre la media del resto de productos, necesitaría ciertas mejoras para destacar sobre la competencia.<br><br>
+                                <strong>Aceptable tipo C</strong>(entre 70 y 74):<br>&nbsp;El producto ya tiene cierto nivel de usabilidad aunque aún admite mejoras que lo harían destacar.<br><br>
+                                <strong>Aceptable tipo B</strong>(entre 75 y 79) <br>El producto ya cuenta con un nivel de usabilidad alto, destaca sobre el resto y permite un uso agradable<br><br>
+                                <strong>Aceptable tipo A</strong>(más de 80) <br>El producto cuenta con un nivel de usabilidad excelente, destaca ampliamente sobre el resto y permite navegar comodamente al usuario por horas<br></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Test Usabilidad -->
+                    {% elseif t['idTest']==2 or t['idTest']==3 or t['idTest']==4 %}
+
+                    <div class="tab-pane" role="tabpanel" id="tab-{{indice}}">
+                      <div class="row" style="margin-top: 20px;background-color: #ffffff;margin-left: -16px;">
+                          <div class="col">
+                            <p style="margin-left: 20px; ">
+                            Basandonos en el análisis de usabilidad, el resultado obtenido para cada producto ha sido:
+                            </p>
+                          </div>
+                      </div>
+
+                        {% for r in respuestas %}
+                        {% if r['nameTest'] == "Wave" %}
+                          {% if r['puntos'] < 49 %}
+                              {% set badge = " badge-danger" %}
+                          {% elseif r['puntos'] > 49 and r['puntos'] < 69 %}
+                              {% set badge = " badge-warning" %}
+                          {% else %}
+                              {% set badge = " badge-success" %}
+                          {% endif %}
+                        <div class="row">
+                            <div class="col">
+                                <p class="text-left" style="background-color: #ffffff;font-size: 25px;margin-bottom: 5px;color: rgb(55,149,242);margin-left: 10px;"><strong>{{r['nameAlternativa']}}</strong></p>
+                                <span class="badge badge-primary" style="font-size: 29px;margin-left: 15px;">{{r['puntos']|round(1, 'floor')}}</span><span class="badge {{badge}}" style="font-size: 29px;margin-left: 25px;padding-top: 10px;padding-bottom: 10px;padding-right: 15px;padding-left: 15px;">{{r['elementos']}}</span></div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                        <div class="row">
+                            <div class="col">
+                                <h1 style="font-size: 26px;margin-top: 20px;">Leyenda</h1>
+                                <p style="margin-left: 10px;margin-top: 25px;">
+                                    <strong>Muy pobre</strong> (menos 29):&nbsp;<br>Es probable que los usuarios experimenten dificultades muy importantes al utilizar esta plataforma o sistema y es posible que no puedan completar una cantidad significativa
+                                    de tareas importantes. <br><br>
+                                    <strong>Pobre </strong>(entre 29 y 49): <br>Es probable que los usuarios experimenten algunas dificultades al utilizar esta plataforma o sistema y es posible que no puedan completar
+                                    algunas tareas importantes.<br><br>
+                                    <strong>Moderada</strong> (entre 49 y 69): <br>Los usuarios deberían poder utilizar esta plataforma o sistema y completar las tareas más importantes, sin embargo, la experiencia del
+                                    usuario podría mejorarse de manera significativa.<br><br>
+                                    <strong>Bien&nbsp;</strong>(entre 69 y 89):<br>&nbsp;Los usuarios deberían poder utilizar esta plataforma o sistema con relativa facilidad y deberían poder completar
+                                    la gran mayoría de las tareas importantes.<br><br>
+                                    <strong>Excelente&nbsp;</strong>(más de 89) <br>Esta plataforma o sistema proporciona una excelente experiencia de usuario.<br>Los usuarios deben poder completar todas
+                                    las tareas importantes en la plataforma o sistema<br></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Test WAVE -->
+                    {% elseif t['idTest']==5 %}
+
+                    <div class="tab-pane" role="tabpanel" id="tab-{{indice}}">
+                      <div class="row" style="margin-top: 20px;background-color: #ffffff;margin-left: -16px;">
+                          <div class="col">
+                            <p style="margin-left: 20px; ">
+                            Basandonos en el resultado descrito del análisis WAVE, el resultado obtenido para ha resultado:
+                            </p>
+                          </div>
+                      </div>
+                      {% for r in respuestas %}
+                      {% if r['idTest'] == 2 or r['idTest'] == 3 or r['idTest'] == 4 %}
+                        {% if r['puntos'] < 49 %}
+                            {% set badge = " badge-danger" %}
+                        {% elseif r['puntos'] > 49 and r['puntos'] < 69 %}
+                            {% set badge = " badge-warning" %}
+                        {% else %}
+                            {% set badge = " badge-success" %}
+                        {% endif %}
+                      <div class="row">
+                          <div class="col">
+                              <p class="text-left" style="background-color: #ffffff;font-size: 25px;margin-bottom: 5px;color: rgb(55,149,242);margin-left: 10px;"><strong>{{r['nameAlternativa']}}</strong></p>
+                              <span class="badge badge-primary" style="font-size: 29px;margin-left: 15px;">{{r['puntos']|round(1, 'floor')}}</span><span class="badge {{badge}}" style="font-size: 29px;margin-left: 25px;padding-top: 10px;padding-bottom: 10px;padding-right: 15px;padding-left: 15px;">{{r['elementos']}}</span></div>
+                      </div>
+                      {% endif %}
+                      {% endfor %}
+                      <div class="row" style="margin-top: 20px; margin-left:20px;">
+                          <div class="col">
+                            <p> Los criterios que se han tenido en cuenta han sido el nivel de errores, alertas y características especiales que contiene el producto analizado, si desea mejorar la puntuación estos son algunos consejos:</p>
+                            <li>Ofrecer contenidos alternativos que incluyan una descripción del objeto que se este mostrando</li>
+                            <li>Usar indices tabulados que muestren claramente la jerarquía de lo que se esta viendo</li>
+                            <li>Incluir atajos de teclado que permitan desplazarse rápidamente por la interfaz</li>
+                            <li>Evitar el uso de CAPTCHAS</li>
+                            <li>Escoger una combinación de colores que facilite la visualización del contenido</li>
+                            <li>Incluir más de un tipo de entrada de texto</li>
+                            <li>Usar nombres descriptivos en cada etiqueta del producto</li>
+
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col">
+                              <h1 style="font-size: 26px;margin-top: 20px;">Leyenda</h1>
+                              <p style="margin-left: 10px;margin-top: 25px;">
+                                  <strong>Innacesible</strong> (menos 15):&nbsp;<br>El sistema presenta un nivel de accesibilidad inaceptable, que puede impedir su uso en cualquier persona.<br><br>
+                                  <strong>Muy mejorable</strong>(entre 25 y 39): <br>El sistema presenta un nivel de accesibilidad bastante pobre, que hará que pueda ser usado por solo algunas personas dejando a una mayoría sin poder hacer uso del mismo.<br><br>
+                                  <strong>Mejorable</strong> (entre 40 y 49): <br>El sistema presenta un nivel de accesibilidad medio, permitará su uso para algunas personas y de aquellas personas con alguna discapacidad leve ayudándose de herramientas externas.<br><br>
+                                  <strong>Correcta</strong>(entre 50 y 64):<br>El sistema presenta un nivel de accesibilidad correcto, permitirá su uso para la mayoría de personas y de aquellas personas con alguna discapacidad ayudándose de herramientas externas.<br><br>
+                                  <strong>Buena</strong>(entre 65 y 74):<br>El sistema presenta un nivel de accesibilidad alto, permitirá un uso comodo para un sextor amplio de la población incluyendo personas con discapacidades.<br><br>
+                                  <strong>Excepcional</strong>(más de 75) <br>El sistema presenta un nivel de accesibilidad expecional, dotando de muchas características especiales que hacen que la navegación sea fluida para cualquier persona sin importar su condición.<br></p>
+                          </div>
+                      </div>
+                    </div>
+
+                    <!-- Test de contraste -->
+                    {% elseif t['idTest']==6 or t['idTest']==7 or t['idTest']==8%}
+
+                    <div class="tab-pane" role="tabpanel" id="tab-{{indice}}">
+                      <div class="row" style="margin-top: 20px;background-color: #ffffff;margin-left: -16px;">
+                          <div class="col">
+                            <p style="margin-left: 20px; ">
+                            El test de contraste realizado, nos informa de que el sistema maneja unos niveles de contraste:
+                            </p>
+                          </div>
+                      </div>
+                      {% for r in respuestas %}
+                      {% if r['idTest'] == 6 or r['idTest'] == 7 or r['idTest'] == 8 %}
+                      <div class="row">
+                          <div class="col">
+                              <p class="text-left" style="background-color: #ffffff;font-size: 25px;margin-bottom: 5px;color: rgb(55,149,242);margin-left: 10px;"><strong>{{r['nameAlternativa']}}</strong></p>
+                              <span class="badge badge-primary" style="font-size: 20px;margin-left: 5px;">{{r['elementos']}}</span>
+                      </div>
+                    </div>
+                    <div class="row" style="margin-top: 15px;margin-left: 5px;">
+                        <div class="col">
+                            {% if r['puntos'] < 53 %}
+                            <p>El producto presenta errores graves de contraste, impidiendo la distinción de los elementos fundamentales de la interfaz, es necesario un rediseño completo.</p>
+                            {% elseif r['puntos'] > 53 and r['puntos'] < 70 %}
+                            <p>El producto presenta un contraste correcto, aunque tiene un amplio margen de mejora que facilita a hacer más distinguibles las distintas partes del mismo.</p>
+                            {% else %}
+                            <p>El producto presenta unos niveles de contraste muy correctos, haciendo distinguibles todos los elementos de la interfaz y facilitando por tanto la navegación, no es necesario un rediseño.</p>
+                            {% endif %}
+                    </div>
+                  </div>
+                      {% endif %}
+                      {% endfor %}
+                        <p style="padding-left: 10px;padding-bottom: 0px;"></p>
+                    </div>
+
+                    <!-- NPS -->
+                    {% elseif t['idTest'] == 9 %}
+
+                    <div class="tab-pane" role="tabpanel" id="tab-{{indice}}" style="padding-bottom: 20px;background-color: #ffffff;">
+                      <div class="row" style="margin-top: 20px;background-color: #ffffff;margin-left: -16px;">
+                          <div class="col">
+                            <p style="margin-left: 20px; ">
+                            El índice de satisfacción recibido por cada producto ha sido:
+                            </p>
+                          </div>
+                      </div>
+                        <div class="row text-center" style="background-color: #ffffff;">
+                            <div class="col">
+                                <img class="img-fluid" src="assets/img/photo_2021-04-22_14-30-28.jpg" width="500" style="width: 500px;"></div>
+                        </div>
+
+                        {% for r in respuestas %}
+                        {% if r['nameTest'] == "NPS" %}
+
+                        <div class="row text-center" style="background-color: #ffffff;font-size: 27px;margin-bottom: 30px;">
+                            <div class="col">
+                                <p class="text-left" style="background-color: #ffffff;font-size: 25px;margin-bottom: 10px;color: rgb(55,149,242);"><strong>{{r['nameAlternativa']}}</strong></p>
+                                <div class="progress">
+                                    <div class="progress-bar" aria-valuenow="{{r['puntos']}}" aria-valuemin="0" aria-valuemax="100" style="width:{{r['puntos']}}%;">{{r['puntos']}}%</div>
+                                </div>
+                                <p class="text-left" style="font-size: 18px;">Porcentaje de detractores:&nbsp; &nbsp; &nbsp; &nbsp;
+                                  {% set encontrado = false %}
+                                  {% for d in detractores %}
+                                  {% if d['idAlternativa'] == r['idAlternativa'] %}
+                                      {% set encontrado = true %}
+                                      <strong>{{d['porcentaje']|round(1, 'floor')}}%</strong><br>
+                                  {% endif %}
+                                  {% endfor %}
+                                  {% if encontrado == false %}
+                                    <strong>0%</strong><br>
+                                  {% endif %}
+                                  Porcentaje de pasivos:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                  {% set encontrado = false %}
+                                  {% for p in pasivos %}
+                                  {% if p['idAlternativa'] == r['idAlternativa'] %}
+                                      {% set encontrado = true %}
+                                      <strong>{{p['porcentaje']|round(1, 'floor')}}%</strong><br>
+                                  {% endif %}
+                                  {% endfor %}
+                                  {% if encontrado == false %}
+                                    <strong>0%</strong><br>
+                                  {% endif %}
+                                  Porcentaje de promotores:&nbsp; &nbsp; &nbsp;&nbsp;
+                                  {% set encontrado = false %}
+                                  {% for pr in promotores %}
+                                  {% if pr['idAlternativa'] == r['idAlternativa'] %}
+                                      {% set encontrado = true %}
+                                      <strong>{{pr['porcentaje']|round(1, 'floor')}}%</strong><br>
+                                  {% endif %}
+                                  {% endfor %}
+                                  {% if encontrado == false %}
+                                    <strong>0%</strong><br>
+                                  {% endif %}
+                                </p>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+
+                    </div>
+
+                    <!-- Otros tests -->
+
+                    {% elseif t['idTest'] > 9 %}
+                    <div class="tab-pane" role="tabpanel" id="tab-{{indice}}">
+                      <div class="row" style="margin-top: 20px;background-color: #ffffff;margin-left: -16px;">
+                        <div class="col">
+                          <p style="margin-left: 20px; ">
+                          Basandonos en el test {{t['nombreTest']}}, el resultado obtenido para cada producto ha sido:
+                          </p>
+                        </div>
+                    </div>
+
+                      {% for r in respuestas %}
+                      {% if r['idTest'] == t['idTest'] %}
+                        {% if r['puntos'] < 53 %}
+                            {% set badge = " badge-danger" %}
+                        {% elseif r['puntos'] > 52 and r['puntos'] < 69 %}
+                            {% set badge = " badge-warning" %}
+                        {% else %}
+                            {% set badge = " badge-success" %}
+                        {% endif %}
+                      <div class="row">
+                          <div class="col">
+                              <p class="text-left" style="background-color: #ffffff;font-size: 25px;margin-bottom: 5px;color: rgb(55,149,242);margin-left: 10px;"><strong>{{r['nameAlternativa']}}</strong></p>
+                              <span class="badge badge-primary" style="font-size: 29px;margin-left: 15px;">{{r['puntos']|round(1, 'floor')}}</span><span class="badge {{badge}}" style="font-size: 29px;margin-left: 25px;padding-top: 10px;padding-bottom: 10px;padding-right: 15px;padding-left: 15px;">{{r['elementos']}}</span></div>
+                      </div>
+                      {% endif %}
+                      {% endfor %}
+                      <div class="row">
+                          <div class="col">
+                              <h1 style="font-size: 26px;margin-top: 20px;">Leyenda</h1>
+                              <p style="margin-left: 10px;margin-top: 25px;">
+                                  <strong>Muy pobre</strong> (menos 35):&nbsp;<br>Es probable que los usuarios experimenten problemas al ejecutar las acciones de este test.<br><br>
+                                  <strong>Pobre </strong>(entre 35 y 52): <br>Es probable que los usuarios experimenten algunas dificultades al ejecutar las acciones de este test o sistema y es posible que no puedan completar algunas tareas concretas.<br><br>
+                                  <strong>Moderada</strong> (entre 53 y 69): <br>Los usuarios deberían poder utilizar esta plataforma o sistema y completar las tareas más importantes de este test, pero podría mejorarse significativamente.<br><br>
+                                  <strong>Bien&nbsp;</strong>(entre 70 y 87):<br>Los usuarios deberían poder utilizar esta plataforma o sistema con relativa facilidad y deberían poder completar
+                                  la gran mayoría de las tareas de este test.<br><br>
+                                  <strong>Excelente&nbsp;</strong>(más de 88) <br>Esta plataforma o sistema proporciona una excelente experiencia de usuario en lo relativo a este test.<br></p>
+                          </div>
+                      </div>
+                    </div>
+
+                    {% endif %}
+                    {% set indice = indice + 1 %}
+                    {% endfor %}
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center"><a href="./index.php">
+                  <button class="btn btn-primary border rounded" type="button" style="margin-top: 34px;background-color: #25f0bf;color: rgb(0,0,0);">Terminar revisión</button>
+                </a></div>
+            </div>
+            <div class="row">
+              <div class="col text-center"><a href="./dashboard.php"><button class="btn btn-primary border rounded" type="button" style="margin-top: 27px;background-color: #25f0bf;color: rgb(0,0,0);">Volver al dashboard&nbsp;<i class="fa fa-home"></i>&nbsp;</button></a></div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script type = "text/javascript" src="./js/rellenarchart.js"></script>
+</body>
+
+</html>
